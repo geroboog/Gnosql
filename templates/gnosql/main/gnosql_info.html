@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>企业信息</title>
+    <link rel="stylesheet" href="/static/view/css/content.css" />
+    <link rel="stylesheet" href="/static/view/css/animate.css" />
+    <!-- 下拉框 -->
+    <link rel="stylesheet" href="/static/view/css/chosen.css" />
+    <!-- 日历框 -->
+    <link rel="stylesheet" href="/static/view/css/mobileSelect.css" />
+</head>
+<body class="body">
+    <ul id="gnosql_info_content" class="gnosql_info_content">
+        <li class="gnosql_info_items_li band_info" >
+            <div class="gnosql_info_items">
+                <div class="gnosql_info_items_content">
+                    <div class="gnosql_info_items_content_title">Around小酒馆</div>
+                    <div class="gnosql_info_items_content_detail">
+                        <div class="gnosql_info_items_content_store">门店&nbsp;3</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="data_analysis div_hidden" id="data_analysis">
+        <h1 class="table_title">TABLEINFO</h1>
+        <div class="separate"></div>
+        <table class="data_analysis_table">
+            <tr>
+                <td width="20%">
+                    <div class="app_id_border">
+                        <input id="app_id_input" class="app_id_input" value="input ip address or appName" onclick="cleanText(this)"/>
+                    </div>
+                </td>
+                <td width="30%"><div class="add_ip_button normal_button" onclick="submitIP();">ADD&nbsp;IP/AppName</div></td>
+            </tr>
+        </table>
+        <table id="data_analysis_key_table" class="data_analysis_table">
+            <thead>
+            <tr>
+                <td width="20%">KeyName</td><td width="30%">KeyValue</td><td width="30%"></td>
+            </tr>
+            </thead>
+        </table>
+        <div class="separate"></div>
+       <table id="data_analysis_table" class="data_analysis_table">
+           <thead>
+               <tr>
+                   <td width="10%">tableName</td><td width="10%">size</td><td width="40%">createDate</td><td width="40%">accessDate</td>
+               </tr>
+           </thead>
+       </table>
+        <div class="separate"></div>
+        <ul id="data_analysis_menu" class="data_analysis_menu">
+            <li class="data_analysis_menu_items" >
+                <div class="select_box select_box_big">
+                    <select class="chosen-select form-control" name="name" id="graphys" data-placeholder="selectGraphy" style="vertical-align:top;" >
+                        <option value=""></option>
+                        <option value ="data_line">USER ACCESS CHART</option>
+                        <option value ="data_pie_in">ACCESS TYPE PIE</option>
+                    </select>
+                </div>
+            </li>
+            <li class="data_analysis_menu_items" style="width: 70%">
+                <label class="itemLabel">S:</label><div id="startDate" class="time_select">startDate</div>
+                <label class="itemLabel">E:</label><div id="endDate" class="time_select">endDate</div>
+                <div id="submit_time_button" class="normal_button submit_time_button" onclick="submitDate();">submitDate</div>
+            </li>
+        </ul>
+
+        <div id="data_analysis_content" class="data_analysis_content">
+            <div id="data_line" class="data_line">
+            </div>
+            <div id="data_pie_in" class="data_line">
+            </div>
+            <div id="data_pie_out" class="data_line">
+            </div>
+        </div>
+    </div>
+    <audio id="hover_audio" src="/static/view/css/hover.mp3">
+    </audio>
+    <script src="/static/view/js/echarts.min.js"></script>
+    <script src="/static/view/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/view/js/media.js"></script>
+    <script src="/static/view/js/jquery.cookie.js"></script>
+    <script src="/static/view/js/jquery-tips.js"></script>
+    <script src="/static/view/js/ajax.js"></script>
+    <script src="/static/view/js/content.js"></script>
+    <script src="/static/view/js/gnosql_info.js"></script>
+    <script src="/static/view/js/jquery.color.js"></script>
+    <!-- 下拉框 -->
+    <script src="/static/view/js/chosen.jquery.js"></script>
+    <script src="/static/view/js/data_analysis.js"></script>
+
+    <script src="/static/view/js/mobileSelect.js"></script>
+    <script src="/static/view/js/selectDate.js"></script>
+    <script type="text/javascript">
+        showBody();
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        $.selectDate("#startDate", {
+            start: 1994,
+            end: year,
+            select: [year, month, strDate],
+            title: 'select date'
+        }, function(data) {
+            console.log(data);
+        });
+        $.selectDate("#endDate", {
+            start: 1994,
+            end: year,
+            select: [year, month, strDate],
+            title: 'select date'
+        }, function(data) {
+            console.log(data);
+        });
+
+    </script>
+</body>
+</html>

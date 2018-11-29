@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/view/css/login.css" />
+    <link rel="stylesheet" href="/static/view/css/animate.css" />
+</head>
+<body>
+<div class="index_body">
+    <div class="index_top">
+        <div class="index_title"><div class="index_logo"> </div><div class="index_symbol"></div><div class="index_software_name">GNOSQL</div></div>
+    </div>
+    <div id="index_content_cover" class="index_content_cover">
+        <div id="index_content" class="index_content">
+            <div class="index_content_title"><p><span style="font-size: 1rem">G</span> <span style="font-size: 0.6666rem;margin-left: -0.3rem">NOSQL</span></p></div>
+            <div id="index_label" class="index_label" ><div class="index_label_text_area"><p id="index_label_content" class="index_label_content"></p></div></div>
+                <div id="index_username_border"  class="index_input_border"><input type="text" id="username" class="index_input" onclick="cleanText(this)" value="email address" onkeydown="nextKeyPress()"></div>
+                <a id="index_username_button"href="#" class="index_button" onclick="return next();" > NEXT</a>
+
+                <div id="index_password_border" class="index_input_border" style="display: none"><input type="text" id="password" class="index_input"   onclick="cleanText(this)" value="password"  onkeydown="loginKeyPress()"></div>
+                <a id="index_password_button" href="#" class="index_button"  style="display: none" onclick="return login();"> LOGIN</a>
+        </div>
+    </div>
+    <div class="index_bottom"></div>
+</div>
+<script src="/static/view/js/jquery-1.7.2.js"></script>
+<script src="/static/view/js/media.js"></script>
+<script src="/static/view/js/jquery.cookie.js"></script>
+<script src="/static/view/js/jquery-tips.js"></script>
+<script src="/static/view/js/ajax.js"></script>
+<script src="/static/view/js/index.js"></script>
+
+</body>
+</html>

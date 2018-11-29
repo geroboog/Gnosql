@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据统计</title>
+    <link rel="stylesheet" href="/static/view/css/content.css" />
+    <!-- 下拉框 -->
+	<link rel="stylesheet" href="/static/view/css/chosen.css" />
+	<!-- 日历框 -->
+	<link rel="stylesheet" href="/static/view/css/mobileSelect.css" />
+</head>
+<body class="body" >
+<div class="data_analysis">
+	<ul id="data_analysis_menu" class="data_analysis_menu">
+		<li class="data_analysis_menu_items" style="width: 5%;">
+		</li>
+		<li class="data_analysis_menu_items" style="width: 70%;">
+			<label class="itemLabel">S:</label><div id="startDate" class="time_select">startDate</div>
+			<label class="itemLabel">E:</label><div id="endDate" class="time_select">endDate</div>
+			<div id="submit_time_button" class="normal_button submit_time_button" onclick="submitDate();">submitDate</div>
+		</li>
+	</ul>
+
+	<div id="data_analysis_content" class="data_analysis_content">
+		<div id="data_line" class="data_line">
+		</div>
+		<div id="data_pie_in" class="data_line">
+		</div>
+		<div id="data_pie_out" class="data_line">
+		</div>
+	</div>
+</div>
+<audio id="hover_audio" src="/static/view/css/hover.mp3">
+</audio>
+<script src="/static/view/js/echarts.min.js"></script>
+<script src="/static/view/js/jquery-1.7.2.js"></script>
+<script src="/static/view/js/media.js"></script>
+<script src="/static/view/js/jquery.cookie.js"></script>
+<script src="/static/view/js/jquery-tips.js"></script>
+<script src="/static/view/js/ajax.js"></script>
+<script src="/static/view/js/content.js"></script>
+<!-- 下拉框 -->
+<script src="/static/view/js/chosen.jquery.js"></script>
+<script src="/static/view/js/data_analysis.js"></script>
+
+<script src="/static/view/js/mobileSelect.js"></script>
+<script src="/static/view/js/selectDate.js"></script>
+
+<script type="text/javascript">
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    $.selectDate("#startDate", {
+        start: 1994,
+        end: year,
+        select: [year, month, strDate],
+        title: 'select date'
+    }, function(data) {
+        console.log(data);
+    });
+    $.selectDate("#endDate", {
+        start: 1994,
+        end: year,
+        select: [year, month, strDate],
+        title: 'select date'
+    }, function(data) {
+        console.log(data);
+    });
+
+    drawGraphys();
+    init_select();
+    showBody();
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>股东权限</title>
+    <link rel="stylesheet" href="/static/view/css/content.css" />
+</head>
+<body class="body">
+<div class="blog">
+    <ul id="blog_menu" class="blog_menu">
+        <li class="blog_menu_items" onclick="getMyBlogs();"><div class="main_menu_item_icon icon_open" id="myBlogs"></div>我的发帖</li>
+        <li class="blog_menu_items" onclick="getMyFollows();"><div class="main_menu_item_icon icon_close" id="myFollows"></div>我的跟帖</li>
+        <li class="blog_menu_items"><div class="search"><input type="text" id="search_text" class="search_text"/><div id="search_button" class="search_button"></div></div></li>
+    </ul>
+    <div class="blog_content_area" id="blog_content_area">
+        <ul id="blog_content" class="blog_content">
+            <li class="blog_items_li">
+                <div class="blog_items">
+                    <div class="blog_items_logo">
+                        <img class="blog_items_logo_img" src="/static/view/img/1.jpg"/>
+                    </div>
+                    <div class="blog_items_content">
+                        <div class="blog_items_content_detail">
+                            撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                        </div>
+                        <div class="blog_items_content_states">
+                            <div class="blog_items_content_state_items blog_items_content_date">2018 03 02 16:04</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="blog_items_li">
+                <div class="blog_items">
+                    <div class="blog_items_logo">
+                        <img class="blog_items_logo_img" src="/static/view/img/1.jpg"/>
+                    </div>
+                    <div class="blog_items_content">
+                        <div class="blog_items_content_detail">
+                            撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                        </div>
+                        <div class="blog_items_content_states">
+                            <div class="blog_items_content_state_items blog_items_content_date">2018 03 02 16:04</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="blog_items_li">
+                <div class="blog_items">
+                    <div class="blog_items_logo">
+                        <img class="blog_items_logo_img" src="/static/view/img/1.jpg"/>
+                    </div>
+                    <div class="blog_items_content">
+                        <div class="blog_items_content_detail">
+                            撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                        </div>
+                        <div class="blog_items_content_states">
+                            <div class="blog_items_content_state_items blog_items_content_date">2018 03 02 16:04</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="blog_items_li">
+                <div class="blog_items">
+                    <div class="blog_items_logo">
+                        <img class="blog_items_logo_img" src="/static/view/img/1.jpg"/>
+                    </div>
+                    <div class="blog_items_content">
+                        <div class="blog_items_content_detail">
+                            撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                        </div>
+                        <div class="blog_items_content_states">
+                            <div class="blog_items_content_state_items blog_items_content_date">2018 03 02 16:04</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="blog_items_li">
+                <div class="blog_items">
+                    <div class="blog_items_logo">
+                        <img class="blog_items_logo_img" src="/static/view/img/1.jpg"/>
+                    </div>
+                    <div class="blog_items_content">
+                        <div class="blog_items_content_detail">
+                            撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                        </div>
+                        <div class="blog_items_content_states">
+                            <div class="blog_items_content_state_items blog_items_content_date">2018 03 02 16:04</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="blog_bottom"><div id="blog_write" class="blog_write">发帖</div></div>
+    </div>
+
+    <div id="blog_follow_content_area"  class="blog_content_area blog_follow_content_area">
+        <ul id="blog_follow_content" class="blog_content">
+            <li class="blog_follow_items_li">
+                <div class="blog_items">
+                    <div class="blog_items_logo">
+                        <img class="blog_items_logo_img" src="/static/view/img/1.jpg"/>
+                    </div>
+                    <div class="blog_items_content">
+                        <div class="blog_items_content_detail">
+                            撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                        </div>
+                        <div class="blog_items_content_states">
+                            <div class="blog_items_content_state_items blog_items_content_date">2018 03 02 16:04</div>
+                        </div>
+                    </div>
+                </div>
+                <ul id="blog_follows_ul" class="blog_follows_ul">
+                <div class="blog_follows_ul_top"></div>
+                    <li class="blog_follow_li">
+                        <div class="blog_follow_items">
+                            <div class="blog_follow_items_logo">
+                                <img class="blog_follow_items_logo_img" src="/static/view/img/1.jpg"/>
+                            </div>
+                            <div class="blog_follow_items_content">
+                                <div class="blog_follow_items_content_detail">
+                                    撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所 撒谎的快速的发货快速的恢复快速的话费卡
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="blog_follow_li">
+                        <div class="blog_follow_items">
+                            <div class="blog_follow_items_logo">
+                                <img class="blog_follow_items_logo_img" src="/static/view/img/1.jpg"/>
+                            </div>
+                            <div class="blog_follow_items_content">
+                                <div class="blog_follow_items_content_detail">
+                                    大所大所大所撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="blog_follow_li">
+                        <div class="blog_follow_items">
+                            <div class="blog_follow_items_logo">
+                                <img class="blog_follow_items_logo_img" src="/static/view/img/1.jpg"/>
+                            </div>
+                            <div class="blog_follow_items_content">
+                                <div class="blog_follow_items_content_detail">
+                                    好
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+            </li>
+        	<li class="blog_follow_items_li">
+                <div class="blog_items">
+                    <div class="blog_items_logo">
+                        <img class="blog_items_logo_img" src="/static/view/img/1.jpg"/>
+                    </div>
+                    <div class="blog_items_content">
+                        <div class="blog_items_content_detail">
+                            撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                        </div>
+                        <div class="blog_items_content_states">
+                            <div class="blog_items_content_state_items blog_items_content_date">2018 03 02 16:04</div>
+                        </div>
+                    </div>
+                </div>
+                <ul id="blog_follows_ul" class="blog_follows_ul">
+                <div class="blog_follows_ul_top"></div>
+                    <li class="blog_follow_li">
+                        <div class="blog_follow_items">
+                            <div class="blog_follow_items_logo">
+                                <img class="blog_follow_items_logo_img" src="/static/view/img/1.jpg"/>
+                            </div>
+                            <div class="blog_follow_items_content">
+                                <div class="blog_follow_items_content_detail">
+                                    撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所 撒谎的快速的发货快速的恢复快速的话费卡
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="blog_follow_li">
+                        <div class="blog_follow_items">
+                            <div class="blog_follow_items_logo">
+                                <img class="blog_follow_items_logo_img" src="/static/view/img/1.jpg"/>
+                            </div>
+                            <div class="blog_follow_items_content">
+                                <div class="blog_follow_items_content_detail">
+                                    大所大所大所撒谎的快速的发货快速的恢复快速的话费卡士大夫奥术大师大所大所大所大所大所多奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所多所大所大所大所大所大所奥术大师大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所大所多
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="blog_follow_li">
+                        <div class="blog_follow_items">
+                            <div class="blog_follow_items_logo">
+                                <img class="blog_follow_items_logo_img" src="/static/view/img/1.jpg"/>
+                            </div>
+                            <div class="blog_follow_items_content">
+                                <div class="blog_follow_items_content_detail">
+                                    好
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="blog_table_cover" class="blog_table_cover">
+    <div id="blog_table" class="blog_table">
+        <div id="blog_table_close" class="blog_table_close">
+            <div id="blog_table_close_img" class="blog_table_close_img">
+            </div>
+        </div>
+    </div>
+</div>
+<audio id="hover_audio" src="/static/view/css/hover.mp3">
+</audio>
+<script src="/static/view/js/jquery-1.7.2.js"></script>
+<script src="/static/view/js/media.js"></script>
+<script src="/static/view/js/jquery.cookie.js"></script>
+<script src="/static/view/js/jquery.color.js"></script>
+<script src="/static/view/js/jquery-tips.js"></script>
+<script src="/static/view/js/ajax.js"></script>
+<script src="/static/view/js/content.js"></script>
+<script src="/static/view/js/blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+html,body {
+    display: block;
+    margin: 0px;
+    width:100%;
+    height:100%;
+    font-size: 72px;
+    font-family: Arial;
+
+}
+p {
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+a{
+    text-decoration:none;
+    cursor:pointer;
+    text-align: center;
+}
+.index_body
+{
+    width:100%;
+    height:100%;
+    display:block;
+    background: url("../img/CooperationKingLogin.jpg") no-repeat center;
+    background-size:100% 100%;
+    opacity:0;
+}
+
+.index_content_cover
+{
+    margin: auto;
+     width:100%;
+    height:8.5rem;
+    background-color:rgba(255,255,255,0.1) ;
+}
+.index_content
+{
+    margin: auto;
+    width:7.57rem;
+    height:7.57rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    -webkit-animation: glow 800ms ease-out infinite alternate;
+    -moz-animation: glow 800ms ease-out infinite alternate;
+    -o-animation: glow 800ms ease-out infinite alternate;
+    -ms-animation: glow 800ms ease-out infinite alternate;
+     /*这里使用了呼吸动画*/
+    animation: glow 800ms ease-out infinite alternate;
+    box-shadow: 0 0 5px rgba(31,31,31,.2), inset 0 0 5px rgba(31,31,31,.1), 0 2px 0 #000;
+    transform: translate(0, 0.5rem);
+    -ms-transform: translate(0,  0.5rem);
+    -webkit-transform: translate(0,  0.5rem);
+    -o-transform: translate(0, 0.5rem);
+    -moz-transform: translate(0, 0.5rem);
+    color: #efe;
+    outline: none;
+}
+.index_top
+{
+    width:100%;
+    height:22%;
+    display: block;
+}
+.index_bottom
+{
+    width:100%;
+    display: block;
+}
+.index_content_title
+{
+    width:7.51rem;
+    height:1.4rem;
+    transform: translate(0, 0.5rem);
+    -ms-transform: translate(0,  0.5rem);
+    -webkit-transform: translate(0,  0.5rem);
+    -o-transform: translate(0, 0.5rem);
+    -moz-transform: translate(0, 0.5rem);
+    text-align: center;
+    font-family: Arial;
+    font-weight: Bold;
+    color:#737373;
+}
+.index_label
+{
+    display: block;
+    color:#737373;
+    font-size: 0.22222rem;
+    line-height: 400%;
+    width:7.57rem;
+    height: 0.97rem;
+    background: url("../img/CooperationKingLogin_label.png") ;
+    background-size:100% 100%;
+    transform: translate(0, 46.0%);
+    -ms-transform: translate(0, 46.0%);
+    -webkit-transform: translate(0, 46.0%);
+    -o-transform: translate(0, 46.0%);
+    -moz-transform: translate(0, 46.0%);
+}
+.index_label_content
+{
+    float: right;
+    transform: translate(0, 26%);
+    -ms-transform: translate(0, 26%);
+    -webkit-transform: translate(0, 26%);
+    -o-transform: translate(0, 26%);
+    -moz-transform: translate(0, 26%);
+}
+.index_label_text_area
+{
+    float: left;
+    width:75%;
+}
+.index_input_border
+{
+    display: block;
+    width:6.15rem;
+    height: 0.73rem;
+    border: 2px solid #666666;
+    transform: translate(11%, 160%);
+    -ms-transform: translate(11%, 160%);
+    -webkit-transform: translate(11%, 160%);
+    -o-transform: translate(11%, 160%);
+    -moz-transform: translate(11%, 160%);
+}
+
+.index_input
+{
+    float: right;
+    display: block;
+    width:91%;
+    height: 92%;
+    border: 0px;
+    color: #666666;
+    background-color: transparent;
+    font-family: Aparajita;
+    font-size: 0.33333rem;
+    font-weight: bold;
+}
+.index_input:focus
+{
+	outline:none;
+}
+.index_button
+{
+    width:56.88%;
+    height:10.6%;
+    display: block;
+    background-color: #005da6;
+    font-weight: bold;
+    font-size: 0.5rem;
+    font-family: Arial;
+    color:#ffffff;
+    line-height: 0.8rem;
+
+    transform: translate(36.5%, 246%);
+    -ms-transform: translate(36.5%, 246%);
+    -webkit-transform: translate(36.5%, 246%);
+    -o-transform: translate(36.5%, 246%);
+    -moz-transform: translate(36.5%, 246%);
+}
+.index_button:active{
+    background-color: #737373;
+}
+.index_title
+{
+    width:6.53rem;
+    height:1.07rem;
+    float: left;
+    background-color: #373D41;
+    color:#E9E9E9;
+}
+.index_symbol
+{
+    width:2px;
+    height:99%;
+    display: block;
+    float: left;
+    background-color: #252626;
+
+}
+.index_logo
+{
+    width:23%;
+    height:100%;
+    background:url("../img/CooperationKingLogin_logo.png") ;
+    background-size: 100% 100%;
+    display: block;
+    float: left;
+}
+.index_software_name
+{
+    width:76%;
+    height:100%;
+    display: block;
+    font-size: 0.4166rem;
+    float: left;
+    text-align: center;
+    line-height: 1.0rem;
+}

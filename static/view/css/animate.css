@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+/*以下定义动画帧*/
+@-webkit-keyframes glow {
+    0% {
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(31,31,31,.2), inset 0 0 5px rgba(31,31,31,.1), 0 0 0 #000;
+    }    
+    100% {
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(31,31,31,.6), inset 0 0 10px rgba(31,31,31,.4), 0 0 0 #000;
+    }
+}
+
+@-moz-keyframes glow {
+    0% {
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(31,31,31,.2), inset 0 0 5px rgba(31,31,31,.1), 0 0 0 #000;
+    }    
+    100% {
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(31,31,31,.6), inset 0 0 10px rgba(31,31,31,.4), 0 0 0 #000;
+    }
+}
+
+@-o-keyframes glow {
+    0% {
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(31,31,31,.2), inset 0 0 5px rgba(31,31,31,.1), 0 0 0 #000;
+    }    
+    100% {
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(31,31,31,.6), inset 0 0 10px rgba(31,31,31,.4), 0 0 0 #000;
+    }
+}
+
+@-ms-keyframes glow {
+    0% {
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(31,31,31,.2), inset 0 0 5px rgba(31,31,31,.1), 0 0 0 #000;
+    }    
+    100% {
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(31,31,31,.6), inset 0 0 10px rgba(31,31,31,.4), 0 0 0 #000;
+    }
+}
+
+@keyframes glow {
+    0% {
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(31,31,31,.2), inset 0 0 5px rgba(31,31,31,.1), 0 0 0 #000;
+    }    
+    100% {
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(31,31,31,.6), inset 0 0 10px rgba(31,31,31,.4), 0 0 0 #000;
+    }
+}
+
+@-webkit-keyframes backgroundGlow {
+    0% {
+       background:rgba(255,255,255,1);
+    }    
+    100% {
+       background:rgba(0,0,0,1);
+    }
+}

@@ -1,0 +1,26 @@
+/* CSS Document */
+
+/*封测版*/
+body{ font:62.5%; margin:0; padding:0; color:#fff;}
+    .fc-bg{ background:url(../images/bg2.png) no-repeat;position:absolute;bottom:0;top:0;right:0;left:0; background-size:100% 100%; padding-top:5rem;}
+	.fc-main-logo{ background:url(../images/icon_510.png) center no-repeat; background-size:contain; width:100%;height:10rem; margin:2rem 0;}
+	.fc-main-tittle{ font-size:2.4rem; color:#fff; margin-top:0;margin-bottom:1%; }
+	.fc-main{ width:640px; margin:0 auto; text-align:center;}
+	.fc-main-tittle-x{ font-size:1.2rem; font-style:normal;} 
+	.fc-main-but{ width:40%;border:1px solid #fff; color:#fff; text-align:center; background:none; border-radius:20px; font-size:1.4rem;}
+	.fc-main-line{height:1px; background:rgba(255,255,255,0.3); width:100%; margin-top:3rem;}
+	.fc-footer-xx{ font-size:0.8rem;}
+	.fc-footer-x{ font-size:0.8rem;}
+	footer{ text-align:center; margin-top:5rem; padding-bottom:0.5rem;}
+	.fc-main-hx{font-size:1.2rem; padding:0 1rem;}
+	.fc-main-xxx{margin:3rem 0; font-size:1.4rem;}
+/*正式版*/
+	.fc-main-img{ width:100%;margin:2rem 0;}
+	.zs-main-list{ margin:0; padding:0; }
+	.zs-main-list:after{ content:"."; display:block; height:0; visibility:hidden; clear:both;}
+	.zs-main-list li{ float:left; width:50%; text-align:left; font-size:0.8rem;line-height:1.6rem;}
+	.zs-main{ width:50%; margin:0 auto;}
+	.zs-bg { padding-top:5%;}
+	.zs-bg {background:url(../images/bg1.png) no-repeat;background-size:100% 100%; height:100%;}
+
+	.zs-main-tittle{ text-align:left; }
