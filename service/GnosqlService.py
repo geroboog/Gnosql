@@ -25,7 +25,7 @@ class GnosqlService(object):
         dataKeys = data.keys()
         if Consts.gnosqlId in dataKeys and Consts.where in dataKeys and Consts.token in dataKeys:
             gnosqlId = data[Consts.gnosqlId]
-            referer = request.referrer
+            referer = request.url_root
             check = True;
             if Consts.appName in dataKeys and referer is None:
                 check = self.checkAppNameInList(gnosqlId, data[Consts.appName])
@@ -90,6 +90,9 @@ class GnosqlService(object):
         gnosqlId = dataStr[Consts.gnosqlId]
         return gnosqlId + "/" + gnosqlId + tableName
 
+    def fullLog(self,operation,dataStr):
+
+        return True;
     # 查询数据
     def basicfunctin(self, data, CRUDfunction, successMsg):
         result = {}

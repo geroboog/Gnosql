@@ -48,12 +48,14 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
             resultArr=[]
             #获取需要查询的数据
             selectArr=json.loads(data)
-            selectAndArr=[]
-            selectAndSize=0
-            selectOrSize=0
-            selectOrArr=[]
             #json格式扩展
+            posibibleCombine = [];
             for key,selectValue in enumerate(selectArr):
+                selectAndArr=[]
+                selectAndSize=0
+                selectOrSize=0
+                selectOrArr=[]
+                print(selectValue);
                 for singleKey,singleValue in selectValue.items():
                     if singleKey.find(Consts.andSeparater) > -1:
                         selectAndArr.append({singleKey:singleValue});
@@ -61,52 +63,75 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                     elif  singleKey.find(Consts.orSeparater) > -1:
                         selectOrArr.append({singleKey:singleValue});
                         selectOrSize += 1;
+                posibibleCombine.append([selectAndArr,selectAndSize,selectOrSize,selectOrArr]);
+                print(json.dumps(selectAndArr))
+                print(json.dumps(selectOrArr))
+            selectSize=len(posibibleCombine);
+            for i in range(0,selectSize):
+                selectAndArr=posibibleCombine[i][0];
+                selectAndSize=posibibleCombine[i][1];
+                selectOrSize=posibibleCombine[i][2];
+                selectOrArr=posibibleCombine[i][3];
 
-            print(json.dumps(selectAndArr))
-            print(json.dumps(selectOrArr))
+                resultSize=0;
+                singleCheck=0;
+                #先查询出所有的与结果
+                if selectAndSize>0:
+                    dataKey = 0
+                    for dataValue in dataArr:
+                        checkSize = 0
+                        #对每个数据进行匹配
+                        #每个条件进行匹配
+                        key = 0
+                        for selectValue in selectAndArr:
+                            singleCheck=0;
+                            for singleKey,singleValue in selectValue.items():
+                                thisKey=singleKey.strip('@');
+                                if thisKey in dataValue.keys():
+                                    if not MatchUtil.match(singleValue, dataValue[thisKey]):
+                                        singleCheck+=1;
+                                    else:
+                                        checkSize+=1;
+                            if singleCheck!=0:
+                                break;
+                            pass
 
-            selectSize=len(selectArr);
-            resultSize=0;
-            singleCheck=0;
-            #先查询出所有的与结果
-            if selectAndSize>0:
-                for dataKey,dataValue in enumerate(dataArr):
-                    checkSize=0;
-                    #对每个数据进行匹配
-                    #每个条件进行匹配
-                    for key,selectValue in enumerate(selectAndArr):
-                        singleCheck=0;
-                        for singleKey,singleValue in selectValue.items():
-                            thisKey=singleKey.strip('@');
-                            if thisKey in dataValue.keys():
-                                if not MatchUtil.match(singleValue, dataValue[thisKey]):
-                                    singleCheck+=1;
-                                else:
-                                    checkSize+=1;
-                        if singleCheck!=0:
-                            break;
+                        if checkSize==selectAndSize and checkSize!=0 and selectAndSize!=0:
+                            # dataArr.pop(dataKey)
+                            dataValue["gIndex"] = dataKey;
+                            resultArr.append(dataValue);
+                            resultSize +=1;
 
-                    if checkSize==selectAndSize and checkSize!=0 and selectAndSize!=0:
-                        # dataArr.pop(dataKey)
-                        resultArr.append(dataValue);
-                        resultSize +=1;
+                            key+=1    
+                        dataKey+=1
+                        pass
 
-            #再查询出所有的或结果
-            if selectOrSize>0:
-                for dataKey,dataValue in enumerate(dataArr):
-                    #对每个数据进行匹配
-                    #每个条件进行匹配
-                    for key,selectValue in enumerate(selectOrArr):
-                        singleCheck=0;
-                        for singleKey,singleValue in selectValue.items():
-                            thisKey=singleKey.strip('~')
-                            if thisKey in dataValue.keys():
-                                if MatchUtil.match(singleValue, dataValue[thisKey]):
-                                    resultArr.append(dataValue);
-                                    resultSize+=1;
-                                    singleCheck+=1;
-                        if singleCheck!=0:
-                            break;
+                #再查询出所有的或结果
+                if selectOrSize>0:
+                    dataKey = 0
+                    for dataValue in dataArr:
+                        #对每个数据进行匹配
+                        #每个条件进行匹配
+                        key = 0
+                        for selectValue in selectOrArr:
+                            singleCheck=0;
+                            for singleKey,singleValue in selectValue.items():
+                                thisKey=singleKey.strip('~')
+                                if thisKey in dataValue.keys():
+                                    if MatchUtil.match(singleValue, dataValue[thisKey]):
+                                        dataValue["gIndex"] = dataKey;
+                                        resultArr.append(dataValue);
+                                        resultSize+=1;
+                                        singleCheck+=1;
+                            if singleCheck!=0:
+                                break;
+
+                            key+=1
+                            pass    
+                        dataKey+=1
+                        pass
+
+                pass
 
             return resultArr
         else:
@@ -234,12 +259,9 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                     dataArr=json.loads(text)
 
                     for key2,value2 in enumerate(result):
-                        for key,value in enumerate(dataArr):
-                            if value['guid']==value2['guid']:
-                                for key3,value3 in updateArr.items():
-                                    dataDict[key][key3]=value3;
-                                    dataArr[key][key3]=value3;
-
+                        for key3,value3 in updateArr.items():
+                            dataDict[value2['gIndex']][key3]=value3;
+                            dataArr[value2['gIndex']][key3]=value3;
 
                     text=json.dumps(dataArr)
                     myNosqlFile = codecs.open(self.getFileName(tableName), "w")

@@ -34,7 +34,7 @@ $('.main_menu_item').click(function(){
             showTab("main_iframe_right","main_iframe","/gnosqlUser/data_analysis");
             break;
         case "Api Document":
-            showTab("main_iframe","main_iframe_right","https://www.showdoc.cc/web/#/23914755783764");
+            showTab("main_iframe","main_iframe_right","https://www.showdoc.com.cn/Gnosql/248508354387091");
             break;
         case "About Us":
             showTab("main_iframe_right","main_iframe","/gnosqlUser/about_us");
