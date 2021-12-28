@@ -22,7 +22,7 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
         # self.mysqlUtil = MysqlUtil.MysqlUtil()
         pass
 
-    def get_selectedArray(self,data):
+    def get_selectedArray(self,data, withIndex = False):
         dataArr=data.split(Consts.thisSeparaterArr)
         tableName=dataArr[0]
         fileName=self.getFileName(tableName)
@@ -46,6 +46,7 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                 GF.setMemoryDict(dataDict,tableName)
             #首先获取到当前数据表所有数据
             resultArr=[]
+            indexArr = [];
             #获取需要查询的数据
             selectArr=json.loads(data)
             #json格式扩展
@@ -79,6 +80,9 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                 if selectAndSize>0:
                     dataKey = 0
                     for dataValue in dataArr:
+                        if(dataKey in indexArr):
+                            dataKey+=1
+                            continue;
                         checkSize = 0
                         #对每个数据进行匹配
                         #每个条件进行匹配
@@ -98,7 +102,9 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
 
                         if checkSize==selectAndSize and checkSize!=0 and selectAndSize!=0:
                             # dataArr.pop(dataKey)
-                            dataValue["gIndex"] = dataKey;
+                            if withIndex:
+                                dataValue["gIndex"] = dataKey;
+                            indexArr.append(dataKey);
                             resultArr.append(dataValue);
                             resultSize +=1;
 
@@ -110,6 +116,9 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                 if selectOrSize>0:
                     dataKey = 0
                     for dataValue in dataArr:
+                        if(dataKey in indexArr):
+                            dataKey+=1
+                            continue;
                         #对每个数据进行匹配
                         #每个条件进行匹配
                         key = 0
@@ -119,7 +128,9 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                                 thisKey=singleKey.strip('~')
                                 if thisKey in dataValue.keys():
                                     if MatchUtil.match(singleValue, dataValue[thisKey]):
-                                        dataValue["gIndex"] = dataKey;
+                                        if withIndex:
+                                            dataValue["gIndex"] = dataKey;
+                                        indexArr.append(dataKey);
                                         resultArr.append(dataValue);
                                         resultSize+=1;
                                         singleCheck+=1;
@@ -191,7 +202,7 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
         tableName=args[1]
         times = ClockUtil.getTimes()
         try:
-            result=self.get_selectedArray(dataStr);
+            result=self.get_selectedArray(dataStr,True);
             if result!=Consts.noneArr:
                 GF=GnosqlFileListUtil();
                 #这里是从内存里面获取到数据字典
@@ -210,10 +221,8 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                     dataArr=json.loads(text)
 
                     for key2,value2 in enumerate(result):
-                        for key,value in enumerate(dataArr):
-                            if value['guid']==value2['guid']:
-                                dataDict.pop(key)
-                                dataArr.pop(key)
+                        dataDict.pop(value2['gIndex']);
+                        dataArr.pop(value2['gIndex']);
 
                     if len(dataArr)>0 :
                         text=json.dumps(dataArr)
@@ -233,11 +242,11 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
     def updateNormal(self,*args):
         rows=""
         dataStr=args[0]['where']
-        updateArr=args[0]['update']
+        updateArr=json.loads(args[0]['update'])
         tableName=args[1]
         times = ClockUtil.getTimes()
         try:
-            result=self.get_selectedArray(dataStr);
+            result=self.get_selectedArray(dataStr,True);
             if result!=Consts.none:
 
                 memeryData=GF=GnosqlFileListUtil();
