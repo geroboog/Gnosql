@@ -190,6 +190,7 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
             text += "]"
             myNosqlfile.write(text)
             myNosqlfile.close()
+            self.logFile(fileName,'insert',args)
             rows=times;
         except BaseException as e:
             print(repr(e))
@@ -231,6 +232,7 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                     myNosqlFile = codecs.open(self.getFileName(tableName), "w")
                     myNosqlFile.write(text)
                     myNosqlFile.close()
+                    self.logFile(fileName,'delete',args)
                     rows=Consts.deleted
             else:
                 rows=Consts.nonDeleted
@@ -276,6 +278,7 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
                     myNosqlFile = codecs.open(self.getFileName(tableName), "w")
                     myNosqlFile.write(text)
                     myNosqlFile.close()
+                    self.logFile(fileName,'update',args)
                     rows=Consts.updated
             else:
                 rows=Consts.nonUpdated
@@ -283,6 +286,12 @@ class GnosqlDao(BaseDao.BaseDao):#user@[{\"@userId\":3}]
             print(repr(e))
             rows=Consts.IOError
         return rows
+
+    def logFile(self,fileName,method,*args):
+        lastArgs = {"data":args,"method":method,"execute_time":time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())}
+        fp=open(fileName+"log","a+",encoding="utf-8")
+        fp.write("\n"+json.dumps(lastArgs)+"\n")
+        fp.close()
 
     @staticmethod
     def getFileName(tableName):
